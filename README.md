@@ -1,6 +1,6 @@
 
 # The Pixi Pocket Knife
-___
+
 ### What is this?
 
 > Pixi Pocket Knife is the foundation for whatever I need it to do! The ultimate goal of this app it to allow for a flexible environment that allows me to implement whatever I feel, in Javascript and HTML, in order to exercise my skills in those languages.
@@ -26,4 +26,4 @@ ___
 [PixiJS]: <http://www.pixijs.com/>
 [Cordova]: <https://cordova.apache.org/>
 [jQuery]: <https://jquery.com/>
-
+---
