@@ -12,19 +12,36 @@
     padding: 0;
 }
 #footer {
-    display: inline-flex;
+    display: flex;
+    flex-wrap: wrap;
     position: absolute;
-    bottom: 0;
-    height: 6.24%;
+    height: auto;
     width: 100%;
+    bottom: 0;
     padding: 0;
 }
-#footer button {
-        display: flex;
-        margin: 0.1em auto;
+    #footer button {
+        margin: 0.2em auto;
         height: auto;
         width: auto;
+    }
+    #footer div {
+        display: flex;
+        flex-wrap:inherit;
+        margin: 0.2em auto;
+        font-size: .75em;
+        padding: 0;
+        width:100%
+    }
+#footer-checkboxes div {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    margin: 0.2em auto;
+    width: auto;
 }
+    #footer input[type=checkbox] {
+        transform: scale(0.75);
+    }
 .not-displayed {
     display: none;
 }

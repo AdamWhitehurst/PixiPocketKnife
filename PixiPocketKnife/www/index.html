@@ -30,10 +30,17 @@
             </div>
 
             <footer id="footer" data-role="footer">
-                <button id="restart-btn" data-role="button" data-icon="refresh">Init A*</button>
-                <button id="initialize-btn" data-role="button" data-icon="alert">Init Grid</button>
-                <button id="step-btn" data-role="button" data-icon="grid">Step</button>
                 <div id="error-msg" class="not-displayed"></div>
+                <div id="footer-btns">
+                    <button id="restart-btn" data-role="button" data-icon="refresh">New</button>
+                    <button id="initialize-btn" data-role="button" data-icon="alert">Run to End</button>
+                    <button id="step-btn" data-role="button" data-icon="grid">Step</button>
+                </div>
+                <div id="footer-checkboxes">
+                    <div>Allow Diagonals:<input type="checkbox" id="allow-diagonals-checkbox" value="diagonals_allowed"></div>
+                    <div>Second Checkbox:<input type="checkbox" id="second-checkbox" value="second_checkbox"></div>
+                    <div>Third Checkbox:<input type="checkbox" id="third-checkbox" value="third_checkbox"></div>
+</div>
             </footer>
 
         </div>
