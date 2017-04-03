@@ -1,46 +1,30 @@
-﻿var width;
-var height;
-var gridInitted;
-var aStarInitted;
+﻿
 (function () {
+    this.height;
+    this.width;
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
     function onDeviceReady() {
         var bounds = document.getElementById('canvas-hook').getBoundingClientRect();
         this.width = bounds.width;
         this.height = bounds.height;
-        var initBtn = document.getElementById('initialize-btn');
-        initBtn.addEventListener('click', runToEnd.bind(this), false);
+        var initBtn = document.getElementById('left-btn');
+        initBtn.addEventListener('click', onLeftBtnClick.bind(this), false);
 
-        var rsrtBtn = document.getElementById('restart-btn');
-        rsrtBtn.addEventListener('click', onRestartClick.bind(this), false);
+        var rsrtBtn = document.getElementById('center-btn');
+        rsrtBtn.addEventListener('click', onCenterBtnClick.bind(this), false);
 
-        var stepBtn = document.getElementById('step-btn');
-        stepBtn.addEventListener('click', onStepClick.bind(this), false);
+        var stepBtn = document.getElementById('right-btn');
+        stepBtn.addEventListener('click', onRightBtnClick.bind(this), false);
     }
 })();
-function onInitializeClick() {
-    console.log("Initialize a grid!");
-    this.grid = initGrid(width, height);
+
+function onLeftBtnClick() {
+    
 };
-function onRestartClick() {
-    if (!this.grid) {
-        onInitializeClick();
-    }
-    console.log("Begin A* Pathfinder!");
-    initAStar(grid.array[0][0], grid.array[COLUMNS - 1][ROWS - 1]);
-    aStarInitted = true;
+function onCenterBtnClick() {
+    
 };
 
-function onStepClick() {
-    if (!this.aStarInitted) {
-        onRestartClick();
-    }
-    console.log("Step.");
-    stepAStar();
+function onRightBtnClick() {
+    
 };
-
-function runToEnd() {
-    while (!aStarDone) {
-        onStepClick();
-    }
-}

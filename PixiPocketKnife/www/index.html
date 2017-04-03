@@ -16,12 +16,12 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>PixiApp</title>
+        <title>Pixi Pocket Knife</title>
     </head>
     <body>
         <div data-role="page" id="page">
             <div data-role="header" id="header">
-                <h1 id="app-title">PixiJS Test App</h1>
+                <h1 id="app-title">Pixi Pocket Knife</h1>
                 <button id="home-btn" data-role="button" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-home ui-btn-icon-notext" rel="external">Home</button>
             </div>
 
@@ -30,9 +30,9 @@
             </div>
 
             <footer id="footer" data-role="footer">
-                <button id="restart-btn" data-role="button" data-icon="refresh">Init A*</button>
-                <button id="initialize-btn" data-role="button" data-icon="alert">Init Grid</button>
-                <button id="step-btn" data-role="button" data-icon="grid">Step</button>
+                <button id="left-btn" data-role="button" data-icon="refresh">Init A*</button>
+                <button id="center-btn" data-role="button" data-icon="alert">Init Grid</button>
+                <button id="right-btn" data-role="button" data-icon="grid">Step</button>
                 <div id="error-msg" class="not-displayed"></div>
             </footer>
 
@@ -46,8 +46,6 @@
         <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
         <!--PixiJS scripts-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.2.2/pixi.min.js"></script>
-        <script src="scripts/a_star.js"></script>
-        <script src="scripts/grid.js"></script>
         <script src="scripts/pixi.js"></script>
     </body>
 </html>
