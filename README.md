@@ -19,7 +19,6 @@
 - AVL Tree traversal Example
 - Genetic Evolution Algorithm Example
 ---
-
 #### Powered By
 [![N|Solid](https://rimdevblog.files.wordpress.com/2013/11/apache-cordova.jpg?w=800)]([Cordvoa])
 [![N|Solid](http://www.goodboydigital.com/wp-content/uploads/2014/04/pixijs.png)]([PixiJS])
@@ -27,5 +26,4 @@
 [PixiJS]: <http://www.pixijs.com/>
 [Cordova]: <https://cordova.apache.org/>
 [jQuery]: <https://jquery.com/>
-
 ---
