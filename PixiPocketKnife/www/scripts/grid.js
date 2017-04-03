@@ -1,6 +1,6 @@
 ﻿//Constants
-var COLUMNS = 12;
-var ROWS = 20;
+var COLUMNS = 10;
+var ROWS = 18;
 //Grid Variables
 var nodeWidth = 0;
 var nodeHeight = 0;
@@ -43,30 +43,23 @@ var Container = PIXI.Container,
             "/res/icons/android/icon-48-mdpi.png",
             "/res/icons/android/icon-96-xhdpi.png",
             ])
+            .on("progress", function (loader, resource) {
+                console.log("loading: '" + resource.url + "' progress: " + loader.progress + "%");
+            })
             .load(function () {
                 console.log("Done loading resource!");
             });
     }
 })();
 //Grid Node Stuff
-var NodeState = {
+var GridState = {
     NONE: 0xFFFFFF,
-    RED: 0xAA3939,
-    START: 0x2D882D,
+    START: 0xAA3939,
     END: 0x2D882D,
     BLOCKED: 0x003333,
     VISITED: 0x226666,
     CHECKED: 0xAA6C39
 }
-
-
-//maybe should be static properties?
-var OrthPos = [
-    [-1, 0],
-    [0, -1],
-    [1, 0],
-    [0, 1]
-];
 
 class GridNode {
     constructor(i, j, width, height) {
@@ -82,17 +75,13 @@ class GridNode {
         this.sprite.y = this.worldPosY;
         this.sprite.width = width;
         this.sprite.height = height;
-        this._state = NodeState.NONE;
+        this._state = GridState.NONE;
         this.fromNode = undefined; // The previous node when performing A* search. Change to array in a_star?
         this.neighbors = [];
-
-        if (Math.random() > 0.75) {
-            this.setNodeState(NodeState.BLOCKED);
-        }
     };
 
      /**
-     * @param {NodeState} s The state to change the node to.
+     * @param {GridState} s The state to change the node to.
      */
     setNodeState (s) {
         this._state = s;
@@ -105,6 +94,14 @@ class GridNode {
      */
     getNodeState () {
         return this._state;
+    };
+
+    /**
+     * Push the passed node into neighbors array (does not verify that they are actually neighbors)
+     * @param {GridNode} node
+     */
+    pushNeighbor(node) {
+        this.neighbors.push(node);
     };
 
     /**
@@ -136,24 +133,25 @@ function initGrid(w, h) {
         }
     }
 
+    // wtf ...
+    //for every node in the grid
     for (var i = 0; i < COLUMNS; i++) {
         for (var j = 0; j < ROWS; j++) {
-            for (var k = 0; k < 4; k++) {
-                var node = getNode(this.array[i][j].gridPosI + OrthPos[k][0], this.array[i][j].gridPosJ + OrthPos[k][1]);
-                if (node != null) {
-                    this.array[i][j].neighbors.push(node);
+            //for each adjacent node (including diagonals)
+            for (var neighborI = i - 1; neighborI <= i + 1; neighborI++) {
+                for (var neighborJ = j - 1; neighborJ <= j + 1; neighborJ++) {
+                    //if the indeces exist in the corresponding array and aren't 0,0
+                    if (neighborI in this.array) {
+                        if (neighborJ in this.array[i]) {
+                            if (!(neighborI == i && neighborJ == j)) {
+                                this.array[i][j].neighbors.push(this.array[neighborI][neighborJ]);
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-
     renderer.render(stage);
     return this;
-};
-function getNode (k, j) {
-    if (k < 0 || k >= this.array.length ||
-        j < 0 || j >= this.array[0].length) {
-        return null;
-    }
-    return this.array[k][j];
-};
+}

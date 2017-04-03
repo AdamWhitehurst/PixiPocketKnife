@@ -1,8 +1,7 @@
 ﻿var width;
 var height;
-var grid;
+var gridInitted;
 var aStarInitted;
-var stepResponse = 0;
 (function () {
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
     function onDeviceReady() {
@@ -24,11 +23,12 @@ function onInitializeClick() {
     this.grid = initGrid(width, height);
 };
 function onRestartClick() {
-    this.grid = initGrid(width, height);
+    if (!this.grid) {
+        onInitializeClick();
+    }
     console.log("Begin A* Pathfinder!");
-    stepResponse = 0;
     initAStar(grid.array[0][0], grid.array[COLUMNS - 1][ROWS - 1]);
-    this.aStarInitted = true;
+    aStarInitted = true;
 };
 
 function onStepClick() {
@@ -36,11 +36,11 @@ function onStepClick() {
         onRestartClick();
     }
     console.log("Step.");
-    stepResponse = stepAStar();
+    stepAStar();
 };
 
 function runToEnd() {
-    while (stepResponse == 0) {
+    while (!aStarDone) {
         onStepClick();
     }
 }
