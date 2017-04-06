@@ -1,10 +1,10 @@
 {
      "android": {
          "release": {
-             "keystore": "",
-             "storePassword": "",
-             "alias": "",
-             "password" : "",
+             "keystore": "c:\\pixi_pocket_knife.keystore",
+             "storePassword": "PP$V3rageP4S$",
+             "alias": "adamW",
+             "password" : "PP$V3rageP4S$",
              "keystoreType": ""
          }
      }

@@ -6,7 +6,7 @@
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
         <meta http-equiv="Content-Security-Policy" content="
-              default-src 'self' data: gap: https://ssl.gstatic.com http://api.openweathermap.org 'unsafe-eval';
+              default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval';
               script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';
               style-src 'self' 'unsafe-inline'; media-src *;">
 
@@ -21,18 +21,22 @@
     <body>
         <div data-role="page" id="page">
             <div data-role="header" id="header">
-                <h1 id="app-title">Pixi Pocket Knife</h1>
-                <button id="home-btn" data-role="button" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-home ui-btn-icon-notext" rel="external">Home</button>
+                <h2 id="app-title">Pixi Pocket Knife</h2>
+                <button id="end-btn" data-role="button" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-arrow-l ui-btn-icon-notext" rel="external">Back</button>
+                <button id="home-btn" data-role="button" class="ui-btn ui-btn-right ui-btn-corner-all ui-icon-home ui-btn-icon-notext" rel="external">Home</button>
             </div>
 
             <div id="main" role="main" class="ui-content">
-                <div id="canvas-hook"></div>
+                <div id="canvas-container"></div>
             </div>
 
             <footer id="footer" data-role="footer">
-                <button id="left-btn" data-role="button" data-icon="refresh">Init A*</button>
-                <button id="center-btn" data-role="button" data-icon="alert">Init Grid</button>
-                <button id="right-btn" data-role="button" data-icon="grid">Step</button>
+                <button id="red-btn" data-role="button" class="ui-btn-corner-all ui-btn ui-shadow ui-corner-all ui-icon-triangle-1-sw ui-btn-icon-notext">Red</button>
+                <button id="orange-btn" data-role="button" class="ui-btn-corner-all ui-btn ui-shadow ui-corner-all ui-icon-triangle-1-w ui-btn-icon-notext" rel="external">Orange</button>
+                <button id="yellow-btn" data-role="button" class="ui-btn-corner-all ui-btn ui-shadow ui-corner-all ui-icon-triangle-1-n ui-btn-icon-notext" rel="external">Yellow</button>
+                <button id="green-btn" data-role="button" class="ui-btn-corner-all ui-btn ui-shadow ui-corner-all ui-icon-triangle-1-s ui-btn-icon-notext" rel="external">Green</button>
+                <button id="blue-btn" data-role="button" class="ui-btn-corner-all ui-btn ui-shadow ui-corner-all ui-icon-triangle-1-e ui-btn-icon-notext" rel="external">Blue</button>
+                <button id="violet-btn" data-role="button" class="ui-btn-corner-all ui-btn ui-shadow ui-corner-all ui-icon-triangle-1-se ui-btn-icon-notext" rel="external">Violet</button>
                 <div id="error-msg" class="not-displayed"></div>
             </footer>
 
@@ -44,8 +48,13 @@
         <!--jQuery scripts-->
         <script src="scripts/jquery-1.8.0.min.js"></script>
         <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+        <!--Creatures Scripts-->
+        <script src="scripts/creatures/synaptic.js"></script>
+        <script src="scripts/creatures/vector.js"></script>
+        <script src="scripts/creatures/creature.js"></script>
+        <script src="scripts/creatures/world.js"></script>
         <!--PixiJS scripts-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.2.2/pixi.min.js"></script>
+        <script src="scripts/pixi.min.js"></script>
         <script src="scripts/pixi.js"></script>
     </body>
 </html>

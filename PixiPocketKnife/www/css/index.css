@@ -20,11 +20,26 @@
     padding: 0;
 }
 #footer button {
-        display: flex;
-        margin: 0.1em auto;
-        height: auto;
-        width: auto;
+        margin: auto auto;
 }
+    #footer #red-btn {
+        background-color: orangered;
+    }
+    #footer #orange-btn {
+        background-color: orange;
+    }
+    #footer #yellow-btn {
+        background-color: yellow;
+    }
+    #footer #green-btn {
+        background-color: greenyellow;
+    }
+    #footer #blue-btn {
+        background-color: cyan;
+    }
+    #footer #violet-btn {
+        background-color: blueviolet;
+    }
 .not-displayed {
     display: none;
 }
