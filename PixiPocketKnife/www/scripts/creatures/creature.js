@@ -15,29 +15,45 @@ function Creature(world, x, y)
 	this.acceleration = new Vector(0, 0);
     this.color = "#222222";
     this.sprite;
+    this.initSprite();
 }
 
 Creature.prototype = {
     initSprite: function () {
+        if (this.sprite) {
+            this.destroySprite();
+        }
+
         this.sprite = new PIXI.Sprite(PIXI.loader.resources["/res/icons/android/icon-96-xhdpi.png"].texture);
 
         this.sprite.buttonMode = true;
         this.sprite.interactive = true;
 
-        this.sprite.on('pointerdown', function () {
+        this.sprite.on('pointerover', function () {
             this.sprite.height *= 1.1;
             this.sprite.width *= 1.1
-        });
+        }.bind(this));
 
-        this.sprite.on('pointerup', function () {
+        this.sprite.on('pointerout', function () {
             this.sprite.height /= 1.1;
             this.sprite.width /= 1.1
-        });
+        }.bind(this));
 
-        this.sprite.height = world.width() / 20;
-        this.sprite.width = world.width() / 20;
+        this.sprite.height = this.world.width() / 20;
+        this.sprite.width = this.world.width() / 20;
 
-        world.stage.addChild(this.sprite);
+        this.sprite.x = this.location.x;
+        this.sprite.y = this.location.y;
+
+        this.world.stage.addChild(this.sprite);
+    },
+
+    destroySprite: function () {
+        this.sprite.destroy();
+    },
+
+    destroy: function () {
+        this.destroySprite();
     },
 
     moveTo: function (networkOutput) {
@@ -78,8 +94,8 @@ Creature.prototype = {
         this.boundaries();
         this.velocity.add(this.acceleration);
         this.velocity.limit(this.maxspeed);
-        if (this.velocity.mag() < 1.5)
-            this.velocity.setMag(1.5);
+        if (this.velocity.mag() < 1.5 * this.world.ticker.deltaTime)
+            this.velocity.setMag(1.5 * this.world.ticker.deltaTime);
         this.location.add(this.velocity);
         this.acceleration.mul(0);
     },

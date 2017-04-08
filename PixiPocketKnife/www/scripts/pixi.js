@@ -1,10 +1,6 @@
-﻿var creatureWorld;
-var stage;
-var play;
-var pixiRenderer;
+﻿(function () {
+    document.addEventListener('deviceready', function () {
 
-(function () {
-    document.addEventListener('deviceready', function() {
         // Hook up button event listeners
         var redBtn = document.getElementById('red-btn');
         redBtn.addEventListener('click', onRedBtnClick.bind(this), false);
@@ -20,7 +16,7 @@ var pixiRenderer;
         violetBtn.addEventListener('click', onVioletBtnClick.bind(this), false);
 
         // Load pixi texture assets
-        loadAssets();
+        this.loadAssets();
 
     }.bind(this), false);
 })();
@@ -32,10 +28,13 @@ function loadAssets() {
         "/res/icons/android/icon-48-mdpi.png",
         "/res/icons/android/icon-96-xhdpi.png"
     ]).load(function () {
-        postLoadAssets();
+        loadWorld();
+
+        state = creatureWorld.loop.bind(this);
+        gameLoop();
     });
 }
-function postLoadAssets() {
+function loadWorld() {
     // Capture renderer and initialize a stage
     var container = $('#canvas-container');
     pixiRenderer = PIXI.autoDetectRenderer(container.width(), container.height(), { transparent: true });
@@ -48,17 +47,23 @@ function postLoadAssets() {
 
     creatureWorld = new World(pixiRenderer, stage, 10);
     creatureWorld.populate();
-    play = creatureWorld.loop();
-
-    pixiGameLoop();
 }
 
-function pixiGameLoop() {
+function reload() {
+    if (stage) {
+        stage.destroy({ children: true });
+    }
+    stage = new PIXI.Container();
+
+    creatureWorld = new World(pixiRenderer, stage, 10);
+    creatureWorld.populate();
+}
+function gameLoop() {
     //Loop this function 60 times per second
-    requestAnimationFrame(pixiGameLoop);
+    requestAnimationFrame(gameLoop);
 
     //Update the current game state:
-    play();
+    state();
 
     //Render the stage
     pixiRenderer.render(stage);
@@ -69,10 +74,10 @@ function pause () {
 }
 
 function onRedBtnClick() {
-    play = pause();
+    reload();
 }
 function onOrangeBtnClick() {
-    
+    state = pause;
 }
 
 function onYellowBtnClick() {
@@ -80,7 +85,7 @@ function onYellowBtnClick() {
 }
 
 function onGreenBtnClick() {
-    play = creatureWorld.loop();
+    resume();
 }
 
 function onBlueBtnClick() {
@@ -89,4 +94,12 @@ function onBlueBtnClick() {
 
 function onVioletBtnClick() {
 
+}
+
+function resume() {
+    state = creatureWorld.loop.bind(this);
+}
+
+function pause() {
+    //TODO: nothing.
 }

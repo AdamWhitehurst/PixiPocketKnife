@@ -7,7 +7,7 @@
     width: 100%;
 }
 #main {
-    height:87%;
+    height:85%;
     width:auto;
     padding: 0;
 }
@@ -62,12 +62,15 @@ form {
     }
 
 #error-msg {
+    position:absolute;
+    bottom: 0;
     text-align: center;
-    margin-top: 50%;
+    height: auto;
+    width: 100%;
     font-weight: bold;
 }
 
-#canvas-hook {
+#canvas-container {
     width: inherit;
     height: 100%;
 }
