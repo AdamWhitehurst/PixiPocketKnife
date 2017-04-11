@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="dev.AdamWhitehust.PixiPocketKnife" version="0.1.1" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US">
-  <name>PixiPocketKnife</name>
-  <description>A versatile pache Cordova project that implements PixiJS to allow for a wide range of functions</description>
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="dev.AdamWhitehust.FlockingNeuralNetwork" version="0.1.2" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US">
+  <name>Flocking Neural Network</name>
+  <description>An example of implementing perecptron neural networks to organize a flock of creatures that explore the environment</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Adam Whitehurst</author>
   <vs:template-name>BlankJS</vs:template-name>
   <vs:toolsetVersion>6.3.1</vs:toolsetVersion>
@@ -102,8 +102,8 @@
     <splash src="res/screens/windows/SplashScreen.scale-240.png" width="1152" height="1920" />
     <splash src="res/screens/windows/SplashScreenPhone.scale-240.png" width="1152" height="1920" />
   </platform>
-  <plugin name="cordova-plugin-geolocation" spec="~2.4.2" />
   <plugin name="cordova-plugin-compat" spec="~1.1.0" />
   <access origin="https://cdnjs.cloudflare.com" />
-  <preference name="Fullscreen" value="True" />
+  <preference name="Fullscreen" value="False" />
+  <preference name="Orientation" value="portrait" />
 </widget>

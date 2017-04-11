@@ -13,7 +13,7 @@ Creature.prototype = {
             this.destroySprite();
         }
 
-        this.sprite = new PIXI.Sprite(PIXI.loader.resources["/res/icons/android/icon-96-xhdpi.png"].texture);
+        this.sprite = new PIXI.Sprite(PIXI.loader.resources["images/cordova.png"].texture);
 
         this.sprite.buttonMode = true;
         this.sprite.interactive = true;
