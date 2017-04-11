@@ -51,5 +51,5 @@ Creature.prototype = {
 
     update: function () {
         
-    },
+    }
 };

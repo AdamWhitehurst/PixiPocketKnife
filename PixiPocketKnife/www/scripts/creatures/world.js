@@ -142,7 +142,7 @@ World.prototype = {
     document.addEventListener('deviceready', function () {
         PIXI.loader
             .add([
-                "/res/icons/android/icon-96-xhdpi.png"
+                "images/cordova.png"
             ])
             .load(function () {
                 mainWorld = new World(10);
