@@ -10,14 +10,9 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.myappae664d"
         },
-        "cordova-plugin-geolocation": {
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "io.cordova.myappae664d"
-        }
-    },
-    "dependent_plugins": {
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "io.cordova.myappae664d"
         }
-    }
+    },
+    "dependent_plugins": {}
 }

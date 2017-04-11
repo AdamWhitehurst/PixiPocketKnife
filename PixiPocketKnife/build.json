@@ -1,11 +1,11 @@
 {
      "android": {
-         "release": {
-             "keystore": "c:\\pixi_pocket_knife.keystore",
-             "storePassword": "PP$V3rageP4S$",
-             "alias": "adamW",
-             "password" : "PP$V3rageP4S$",
-             "keystoreType": ""
-         }
+      "release": {
+        "keystore": "c:\\neural_network.keystore",
+        "storePassword": "NNK3yst0r#",
+        "alias": "adamW",
+        "password": "nnkeystore",
+        "keystoreType": ""
+      }
      }
  }

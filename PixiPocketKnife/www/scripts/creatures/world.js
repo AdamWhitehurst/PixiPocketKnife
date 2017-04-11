@@ -170,15 +170,13 @@ World.prototype = {
     targetAngle: function (creature) {
         var alignment = creature.align(this.creatures);
         return (alignment.angle() + Math.PI) / (Math.PI * 2);
-    },
+    }
 };
 (function () {
     document.addEventListener('deviceready', function () {
         PIXI.loader
             .add([
-                "/res/icons/android/icon-36-ldpi.png",
-                "/res/icons/android/icon-48-mdpi.png",
-                "/res/icons/android/icon-96-xhdpi.png"
+                "images/cordova.png"
             ])
             .load(function () {
                 mainWorld = new World(10);

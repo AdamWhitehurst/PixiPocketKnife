@@ -88,4 +88,8 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bower_components\pixi.js\dist\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
 </Project>
